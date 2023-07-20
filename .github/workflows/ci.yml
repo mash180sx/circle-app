@@ -30,8 +30,8 @@ jobs:
 #      run: docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs
     - name: start Laravel Sail
       run: ./vendor/bin/sail up -d
-    - name: change owner
-      run: sudo chown -R runner:docker /var/www/html
+    - name: change permission
+      run: sudo chmod -R 666 /var/www/html
     - name: generate key
       run: ./vendor/bin/sail artisan key:generate
     - name: migrate

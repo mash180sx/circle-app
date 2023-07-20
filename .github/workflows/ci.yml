@@ -28,6 +28,8 @@ jobs:
 #      run: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 #    - name: composer install
 #      run: docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs
+    - name: docker volume clear
+      run: docker volume rm -f circle-app_sail-meilisearch circle-app_sail-mysql circle-app_sail-redis vscode
     - name: start Laravel Sail
       run: ./vendor/bin/sail up -d
     - name: change permission

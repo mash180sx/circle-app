@@ -28,19 +28,15 @@ jobs:
 #      run: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 #    - name: composer install
 #      run: docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs
-    # - name: start Laravel Sail
-    #   run: ./vendor/bin/sail up -d
-    # - name: change permission
-    #   run: sudo chmod -R 666 /var/www/html/storage /var/www/html/
-    # - name: generate key
-    #   run: ./vendor/bin/sail artisan key:generate
-    # - name: migrate
-    #   run: ./vendor/bin/sail artisan migrate
-    # - name: test
-    #   run: ./vendor/bin/sail test
-    # - name: larastan
-    #   run: ./vendor/bin/sail artisan larastan --without-tty
-    - name: user
-      run: whoami && groups $(whoami) | cut -d' ' -f1
-    - name: group
-      run: groups $(whoami) | cut -d' ' -f1
+    - name: start Laravel Sail
+      run: ./vendor/bin/sail up -d
+    - name: change permission
+      run: sudo chmod -R 777 .
+    - name: generate key
+      run: ./vendor/bin/sail artisan key:generate
+    - name: migrate
+      run: ./vendor/bin/sail artisan migrate
+    - name: test
+      run: ./vendor/bin/sail test
+    - name: larastan
+      run: ./vendor/bin/sail artisan larastan --without-tty

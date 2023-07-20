@@ -42,3 +42,5 @@ jobs:
     #   run: ./vendor/bin/sail artisan larastan --without-tty
     - name: user
       run: whoami && groups $(whoami) | cut -d' ' -f1
+    - name: group
+      run: groups $(whoami) | cut -d' ' -f1

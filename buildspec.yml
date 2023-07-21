@@ -1,0 +1,36 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+#    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+#      with:
+#        php-version: '8.2'
+    - uses: actions/checkout@v3
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: composer install
+      run: docker run --rm -u "$(id -u):$(id -g)" -v "$(pwd):/var/www/html" -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs
+    - name: start Laravel Sail
+      run: ./vendor/bin/sail up -d
+    - name: change permission
+      run: sudo chmod -R 777 . /var/lib/mysql
+    - name: generate key
+      run: ./vendor/bin/sail artisan key:generate
+    - name: migrate
+      run: ./vendor/bin/sail artisan migrate
+    - name: test
+      run: ./vendor/bin/sail test
+    - name: larastan
+      run: ./vendor/bin/sail artisan larastan --without-tty

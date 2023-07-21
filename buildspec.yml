@@ -1,10 +1,7 @@
 version: 0.2
 
 phases:
-  # install:
-  #   runtime-versions:
-  #     java: corretto11
-  prebuild:
+  pre_build:
     commands:
       - echo Prepare Laravel Sail Environment
       - docker run --rm -u "$(id -u):$(id -g)" -v "$(pwd):/var/www/html" -w /var/www/html laravelsail/php82-composer:latest composer install --ignore-platform-reqs
@@ -14,7 +11,7 @@ phases:
     commands:
       - echo Start Laravel Sail
       - ./vendor/bin/sail up -d
-      - echo change permission
+      - echo Change permission
       - sudo chmod -R 777 . /var/lib/mysql
       - echo Generate key
       - ./vendor/bin/sail artisan key:generate

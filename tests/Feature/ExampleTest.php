@@ -14,6 +14,7 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // リダイレクトするように変更済みのため200から302に変更
+        $response->assertStatus(302);
     }
 }

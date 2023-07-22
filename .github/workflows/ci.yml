@@ -26,6 +26,8 @@ jobs:
       run: ./vendor/bin/sail up -d mysql
     - name: start selenium
       run: ./vendor/bin/sail up -d selenium
+    - name: start laravel.test
+      run: ./vendor/bin/sail up -d laravel.test
     - name: start Laravel Sail
       run: ./vendor/bin/sail up -d
     - name: change permission

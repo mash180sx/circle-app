@@ -29,7 +29,7 @@ jobs:
     - name: start Laravel Sail
       run: ./vendor/bin/sail up -d
     - name: change permission
-      run: sudo chmod -R 777 . /var/lib/mysql
+      run: sudo chmod -R 777 .
     - name: generate key
       run: ./vendor/bin/sail artisan key:generate
     - name: migrate

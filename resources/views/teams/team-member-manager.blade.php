@@ -24,14 +24,14 @@
                     <div class="col-span-6 sm:col-span-4">
                         <x-label for="email" value="{{ __('Email') }}" />
                         <x-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
-                        <x-input-error for="email" class="mt-2" />
+                        <x-input-error2 for="email" class="mt-2" />
                     </div>
 
                     <!-- Role -->
                     @if (count($this->roles) > 0)
                         <div class="col-span-6 lg:col-span-4">
                             <x-label for="role" value="{{ __('Role') }}" />
-                            <x-input-error for="role" class="mt-2" />
+                            <x-input-error2 for="role" class="mt-2" />
 
                             <div class="relative z-0 mt-1 border border-gray-200 rounded-lg cursor-pointer">
                                 @foreach ($this->roles as $index => $role)

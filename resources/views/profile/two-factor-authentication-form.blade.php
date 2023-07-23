@@ -56,7 +56,7 @@
                             wire:model.defer="code"
                             wire:keydown.enter="confirmTwoFactorAuthentication" />
 
-                        <x-input-error for="code" class="mt-2" />
+                        <x-input-error2 for="code" class="mt-2" />
                     </div>
                 @endif
             @endif

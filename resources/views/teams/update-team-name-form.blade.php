@@ -32,7 +32,7 @@
                         wire:model.defer="state.name"
                         :disabled="! Gate::check('update', $team)" />
 
-            <x-input-error for="name" class="mt-2" />
+            <x-input-error2 for="name" class="mt-2" />
         </div>
     </x-slot>
 

@@ -29,7 +29,7 @@
                         wire:model.defer="confirmablePassword"
                         wire:keydown.enter="confirmPassword" />
 
-            <x-input-error for="confirmable_password" class="mt-2" />
+            <x-input-error2 for="confirmable_password" class="mt-2" />
         </div>
     </x-slot>
 

@@ -35,7 +35,7 @@
                                 wire:model.defer="password"
                                 wire:keydown.enter="deleteUser" />
 
-                    <x-input-error for="password" class="mt-2" />
+                    <x-input-error2 for="password" class="mt-2" />
                 </div>
             </x-slot>
 

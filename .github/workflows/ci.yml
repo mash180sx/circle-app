@@ -36,7 +36,9 @@ jobs:
       run: ./vendor/bin/sail artisan key:generate
     - name: migrate
       run: ./vendor/bin/sail artisan migrate
-    - name: larastan
-      run: ./vendor/bin/sail artisan larastan --without-tty
+    - name: npm run dev
+      run: ./vendor/bin/sail npm run build
     - name: test
       run: ./vendor/bin/sail test
+    - name: larastan
+      run: ./vendor/bin/sail artisan larastan --without-tty

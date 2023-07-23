@@ -36,6 +36,8 @@ jobs:
       run: ./vendor/bin/sail artisan key:generate
     - name: migrate
       run: ./vendor/bin/sail artisan migrate
+    - name: npm install
+      run: ./vendor/bin/sail npm install
     - name: npm run dev
       run: ./vendor/bin/sail npm run build
     - name: test
